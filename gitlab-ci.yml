@@ -1,0 +1,14 @@
+# GitLab Pages deployment configuration
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp index.html public/index.html
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master
